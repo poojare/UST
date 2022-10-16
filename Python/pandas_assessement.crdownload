@@ -1,0 +1,120 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
+get_ipython().system('pip install pandas')
+
+
+# In[2]:
+
+
+import pandas as pd
+
+
+# In[4]:
+
+
+#a)Read data from csv file fire department of New York City (FDNY)
+#b)View content of the data
+
+pand_exe = pd.read_csv('FDNY.csv')
+display(pand_exe)
+
+
+# In[43]:
+
+
+#d)Skip the first row from dataset while reading
+
+df =  pd.read_csv('FDNY.csv', skiprows = 1)
+df
+
+
+# In[6]:
+
+
+#c)View first five records
+
+pand_exe.head()
+
+
+# In[33]:
+
+
+#g) Display columns of the dataset
+
+pand_exe.columns
+
+
+# In[34]:
+
+
+#j)Find the total number of fire department facilities in New York city.
+
+pand_exe['FacilityName'].unique().size
+
+
+# In[35]:
+
+
+#i)View index of dataset
+
+pand_exe.index
+
+
+# In[15]:
+
+
+#h)Show the datatypes of each column
+pand_exe.dtypes
+
+
+# In[38]:
+
+
+#l)Find the total number of fire department facilities in each borough.(Use groupby)
+df.groupby(['Borough']).size()
+
+
+# In[39]:
+
+
+#k)View FDNY information for each borough.
+pand_exe['FacilityName'].value_counts()
+
+
+# In[40]:
+
+
+#l)Find the total number of fire department facilities in each borough.(Use groupby)
+
+df.groupby(['Borough']).size()
+
+
+# In[27]:
+
+
+#n)Clean the dataset and drop null/nan value.
+df.isnull().sum()
+
+
+# In[44]:
+
+
+df.dropna()
+
+
+# In[45]:
+
+
+#Show statistics of the dataset.
+pand_exe.describe()
+
+
+# In[ ]:
+
+
+
+
